@@ -1,13 +1,6 @@
 import "./App.css";
 
-import {
-  Routes,
-  Route,
-  BrowserRouter,
-  Navigate,
-  Link,
-  HashRouter,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate, Link } from "react-router-dom";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import { createContext, useEffect, useState } from "react";
@@ -68,7 +61,7 @@ function App() {
   ) : (
     <div className="App">
       <UserContext.Provider value={{ user, setUser }}>
-        <HashRouter>
+        <BrowserRouter>
           <header>
             <Link to="/">
               <h1>Mern App</h1>
@@ -120,7 +113,7 @@ function App() {
               )}
             </Routes>
           </div>
-        </HashRouter>
+        </BrowserRouter>
       </UserContext.Provider>
     </div>
   );
