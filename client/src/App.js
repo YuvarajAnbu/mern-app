@@ -17,6 +17,14 @@ function App() {
   // show loading screen
   const [loaded, setLoaded] = useState(false);
 
+  // save token to localstorage and update header to axios whenever user changes
+  useEffect(() => {
+    if (user.token) {
+      localStorage.setItem("token", user.token);
+      axios.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
+    }
+  }, [user]);
+
   //verify token on when website starts
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,14 +46,6 @@ function App() {
       setLoaded(true);
     }
   }, []);
-
-  // save token to localstorage and update header to axios whenever user changes
-  useEffect(() => {
-    if (user.token) {
-      localStorage.setItem("token", user.token);
-      axios.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
-    }
-  }, [user]);
 
   const logout = () => {
     localStorage.setItem("token", "");

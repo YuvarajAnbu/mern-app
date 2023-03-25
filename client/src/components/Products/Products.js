@@ -11,7 +11,9 @@ function Products() {
     axios
       .get("/products")
       .then((res) => {
+        console.log(res);
         if (res.status === 200) {
+          console.log(res);
           setProducts(res.data);
         }
       })

@@ -47,6 +47,7 @@ function Login() {
         }
       })
       .catch((err) => {
+        console.log(err);
         console.log(err?.response?.data?.error);
         setErr(err?.response?.data?.error);
       });
