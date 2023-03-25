@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
 const request = require("supertest");
 const app = require("../server/app");
-const Product = require("../server/models/Product");
 
-const id = "641e4457836d48b004cd55b1";
+const id = "641e73f60952aeccb3843ce8";
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWUyNjY4NDczNWU1ZGNjZDFmODIxMSIsImlhdCI6MTY3OTY5OTMwMH0.zcGwQD3dgPMECp5d-Gpa-YMlRg0dGghip_59ygoE8w8";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWU3MzcyMDk1MmFlY2NiMzg0M2NjOSIsImlhdCI6MTY3OTcxNzIzNX0.Ihlc225sjHXTMeCI5E0k6esxCvLGlZ_0vSEHitBDmB0";
 
 require("dotenv").config();
 
