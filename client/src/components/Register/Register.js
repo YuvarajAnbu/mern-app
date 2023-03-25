@@ -36,14 +36,13 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post("/user/register", data)
+      .post("/api/user/register", data)
       .then((res) => {
-        console.log(res);
         if (res.status === 201) {
           setUser(res.data);
           setSuccess("Account created successfully");
           setTimeout(() => {
-            navigate("/products");
+            navigate("/items");
           }, 1000);
         }
       })

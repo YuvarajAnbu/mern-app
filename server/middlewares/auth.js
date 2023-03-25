@@ -16,7 +16,6 @@ const verifyToken = async (req, res, next) => {
     req.user = verified;
     next();
   } catch (err) {
-    console.log("auth", err);
     return res.status(500).json({ error: err.message });
   }
 };

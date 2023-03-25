@@ -34,21 +34,19 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post("/user/login", data)
+      .post("/api/user/login", data)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           setUser(res.data);
           setSuccess("LogIn success");
 
           setTimeout(() => {
-            navigate("/products");
+            navigate("/items");
           }, 1000);
         }
       })
       .catch((err) => {
-        console.log(err);
-        console.log(err?.response?.data?.error);
+        console.log(err.message);
         setErr(err?.response?.data?.error);
       });
   };

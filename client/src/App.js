@@ -31,10 +31,11 @@ function App() {
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       axios
-        .get("/user/verify")
+        .get("/api/user/verify")
         .then((res) => {
           if (res.status === 200) {
             setUser({ ...res.data, token });
+            console.log("user");
             setLoaded(true);
           }
         })
@@ -84,31 +85,27 @@ function App() {
                   !user.email ? (
                     <Navigate to="user/login" replace />
                   ) : (
-                    <Navigate to="/products" replace />
+                    <Navigate to="/items" replace />
                   )
                 }
               />
               <Route
                 path="user/register"
                 element={
-                  !user.email ? (
-                    <Register />
-                  ) : (
-                    <Navigate to="/products" replace />
-                  )
+                  !user.email ? <Register /> : <Navigate to="/items" replace />
                 }
               />
               <Route
                 path="user/login"
                 element={
-                  !user.email ? <Login /> : <Navigate to="/products" replace />
+                  !user.email ? <Login /> : <Navigate to="/items" replace />
                 }
               />
               {user.email && (
                 <>
-                  <Route path="/products" element={<Products />} />
+                  <Route path="/items" element={<Products />} />
                   <Route path="/upload" element={<Upload />} />
-                  <Route path="/products/:id" element={<Product />} />
+                  <Route path="/items/:id" element={<Product />} />
                 </>
               )}
             </Routes>

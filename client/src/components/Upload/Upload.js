@@ -27,9 +27,8 @@ function Upload() {
     e.preventDefault();
 
     axios
-      .post("/products/", data)
+      .post("/api/products", data)
       .then((res) => {
-        console.log(res);
         if (res.status === 201) {
           setSuccess("Added Product Successfully");
           setData({

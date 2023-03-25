@@ -22,28 +22,28 @@ afterEach(async () => {
   await mongoose.connection.close();
 });
 
-describe("GET /products", () => {
+describe("GET /api/products", () => {
   test("should return all products", async () => {
     const res = await request(app)
-      .get("/products")
+      .get("/api/products")
       .set({ Authorization: `Bearer ${token}` });
     expect(res.statusCode).toBe(200);
   });
 });
 
-describe("GET /products/:id", () => {
+describe("GET /api/products/:id", () => {
   test("should return a product", async () => {
     const res = await request(app)
-      .get(`/products/${id}`)
+      .get(`/api/products/${id}`)
       .set({ Authorization: `Bearer ${token}` });
     expect(res.statusCode).toBe(200);
   });
 });
 
-describe("POST /products", () => {
+describe("POST /api/products", () => {
   test("should create a product", async () => {
     const res = await request(app)
-      .post("/products")
+      .post("/api/products")
       .set({ Authorization: `Bearer ${token}` })
       .send({
         name: "Product 2",
@@ -55,10 +55,10 @@ describe("POST /products", () => {
   });
 });
 
-describe("PUT /products/:id", () => {
+describe("PUT /api/products/:id", () => {
   test("should update a product", async () => {
     const res = await request(app)
-      .put(`/products/${id}`)
+      .put(`/api/products/${id}`)
       .set({ Authorization: `Bearer ${token}` })
       .send({
         name: "Product 4",
@@ -69,10 +69,10 @@ describe("PUT /products/:id", () => {
   });
 });
 
-describe("DELETE /products/:id", () => {
+describe("DELETE /api/products/:id", () => {
   test("should delete a product", async () => {
     const res = await request(app)
-      .delete(`/products/${id}`)
+      .delete(`/api/products/${id}`)
       .set({ Authorization: `Bearer ${token}` });
     expect(res.statusCode).toBe(200);
   });

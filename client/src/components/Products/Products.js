@@ -6,23 +6,30 @@ import "./products.css";
 function Products() {
   const [products, setProducts] = useState([]);
 
+  const [loaded, setLoaded] = useState(false);
+
   //fech all products
   useEffect(() => {
     axios
-      .get("/products")
+      .get("/api/products")
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
-          console.log(res);
           setProducts(res.data);
         }
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoaded(true);
       });
   }, []);
 
-  return (
+  return !loaded ? (
+    <div className="loader-container">
+      <div className="loader"></div>
+    </div>
+  ) : (
     <div className="products">
       <div className="title">
         <h1>
@@ -37,7 +44,7 @@ function Products() {
       <div className="underline"></div>
       <div className="container">
         {products.map((el, i) => (
-          <Link key={i} to={`/products/${el._id}`}>
+          <Link key={i} to={`/items/${el._id}`}>
             <div className="product">
               <h3>{el.name}</h3>
               <p className="desc">{el.description}</p>

@@ -25,11 +25,9 @@ function Product() {
   //get product by id
   useEffect(() => {
     axios
-      .get(`/products/${id}`)
+      .get(`/api/products/${id}`)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
-          console.log(res);
           setProduct(res.data);
         } else {
           throw new Error();
@@ -57,12 +55,10 @@ function Product() {
     e.preventDefault();
 
     axios
-      .put(`/products/${id}`, data)
+      .put(`/api/products/${id}`, data)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           setSuccess("Product Updated Successfully");
-          console.log(res.data, data);
           setProduct({ ...res.data, ...data });
           setData({
             name: "",
@@ -80,9 +76,8 @@ function Product() {
 
   const deleteProduct = () => {
     axios
-      .delete(`/products/${id}`)
+      .delete(`/api/products/${id}`)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           setSuccess("Product Deleted Successfully");
 
