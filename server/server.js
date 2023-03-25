@@ -14,11 +14,11 @@ mongoose
   })
   .then(() => {
     console.log("connected to db");
-
-    app.listen(port, () => {
-      console.log(`listening to port ${port}`);
-    });
   })
   .catch((err) => {
     console.log(`${err} || did not connect`);
   });
+
+app.listen(port, () => {
+  console.log(`listening to port ${port}`);
+});
