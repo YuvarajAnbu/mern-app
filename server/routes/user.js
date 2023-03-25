@@ -56,13 +56,11 @@ router.post("/login", validateLogin, async (req, res) => {
 // Verify login
 router.get("/verify", auth, async (req, res) => {
   try {
-    console.log(1);
     const user = await User.findById(req.user.id, "email");
     if (!user) return res.status(400).json({ error: "Invalid Token." });
 
     res.status(200).json({ email: user.email });
   } catch (err) {
-    console.log(err);
     res.status(500).json({ error: err.message });
   }
 });
