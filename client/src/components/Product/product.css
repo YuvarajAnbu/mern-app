@@ -1,0 +1,38 @@
+.single .product {
+  margin-top: 50px;
+  padding-right: 50px;
+  position: relative;
+}
+
+.single .product:hover {
+  transform: none;
+}
+
+.single .product button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.product button {
+  fill: rgb(151, 151, 151);
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+}
+
+.product button:hover {
+  transform: scale(1.1);
+}
+
+.edit {
+  top: 10%;
+}
+
+.delete {
+  bottom: 10%;
+}

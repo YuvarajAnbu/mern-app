@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1b;
+  color: white;
+  font-family: "Nunito", sans-serif;
+}
+
+.main {
+  padding: 0 8%;
+}
+
+.loader-container {
+  width: 100%;
+  height: 100%;
+  /* background-color: white; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999999999999999;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: double 2px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(#1a1a1b, #1a1a1b),
+    radial-gradient(
+      circle at top,
+      rgb(216, 216, 216) 30%,
+      rgba(255, 255, 255, 0.151) 70%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+header {
+  padding: 30px 8%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.055);
+  margin-bottom: 100px;
+}
+
+header p {
+  cursor: pointer;
+}
+
+header p:hover {
+  text-decoration: underline;
+}
+
+a,
+ul {
+  text-decoration: none;
+  color: inherit;
+  list-style-type: none;
+}
+
+.msg {
+  padding: 15px;
+  border-radius: 8px;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.2s ease-in-out;
+}
+
+.hide {
+  transition: 0s ease-in-out;
+  opacity: 0;
+  top: 0;
+}
+
+.err-msg {
+  background-color: #160b0b;
+  color: #f4c7c7;
+}
+.success-msg {
+  background-color: #b6d0b7;
+  color: #0c130d;
+}
